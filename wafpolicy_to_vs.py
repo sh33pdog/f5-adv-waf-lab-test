@@ -2,9 +2,9 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 # Replace these with your actual F5 BIG-IP details
-BIGIP_HOST = '10.1.1.11'
-BIGIP_USER = 'admin'
-BIGIP_PASSWORD = 'Demo4F5ers'
+BIGIP_HOST = 'IP/DOMAIN'
+BIGIP_USER = 'USERNAME'
+BIGIP_PASSWORD = 'PASSWORD'
 
 # Set the base URL for the iControlREST API
 BASE_URL = 'https://{}/mgmt/tm/asm/policies'.format(BIGIP_HOST)
@@ -25,7 +25,7 @@ def extract_policy_info(policies):
         name = policy.get('name')
         virtual_servers = policy.get('virtualServers', [])
         virtual_servers_str = ', '.join(virtual_servers) if virtual_servers else 'N/A'
-        print("Name: {}, Virtual Servers: {}".format(name, virtual_servers_str))
+        print("WAF Policy Name = : {}, This is assigned to Virtual Servers = : {}".format(name, virtual_servers_str))
 
 # Main function
 def main():
